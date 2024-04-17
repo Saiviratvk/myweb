@@ -40,12 +40,12 @@
       <id>deploymentRepo</id>
       <username>repouser</username>
       <password>repopwd</password>
-                 </server>3.109.212.199:8081/repository/sample-snapshots/</url>
+                 </server>http://3.109.212.199:8081/repository/sample-snapshots/</url>
 		 </snapshotRepository>
 		
 		<repository>
 		    <id>nexusRepo</id>
-		    <url>http:/3.109.212.199:8081/repository/sample-releases/</url>
+		    <url>http://3.109.212.199:8081/repository/sample-releases/</url>
 		</repository>
   	</distributionManagement>
 	
