@@ -10,7 +10,7 @@ pipeline{
     stages{
         stage("Git Checkout"){
             steps{
-              git credentialsId: 'in.javahome', url: 'https://github.com/Saiviratvk/myweb.git'
+               git credentialsId: 'in.javahome', url: 'https://github.com/Saiviratvk/myweb.git'
             }
         }
         stage("Maven Build"){
@@ -40,14 +40,14 @@ pipeline{
             }
         stage('Build Docker Image'){
             steps{
-                 sh 'docker build -t chsaikrishna/spring-boot-mongo .'
+                 sh 'docker build -t srinidockerhub87/spring-boot-mongo .'
                  sh 'docker build -t tomcat:${BUILD_NUMBER} .'
-                sh 'docker run -itd --name sai34 -p 5000:8080 tomcat:${BUILD_NUMBER}'
+                 sh 'docker run -itd --name sai143 -p 5000:8080 tomcat:${BUILD_NUMBER}'
              }
          }
         stage('Push Docker Image'){
              steps{
-           withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENTIALS', variable: 'DOCKER_HUB_CREDENTIALS')]) {
+                  withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENTIALS', variable: 'DOCKER_HUB_CREDENTIALS')]) {
                       sh "docker login -u chsaikrishna -p ${DOCKER_HUB_CREDENTIALS}"
             }
             sh 'docker push chsaikrishna/spring-boot-mongo'
